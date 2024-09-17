@@ -9,8 +9,10 @@ function App() {
   return (
     <>
       <NavBar/>
-      <SideBar/>
-      <Board/>
+      <div className='center-container'>
+        <SideBar/>
+        <Board/>
+      </div>
       <Footer/>
     </>
   )
