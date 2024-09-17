@@ -3,7 +3,7 @@ function NavBar(props) {
   return (
     <header className="navbar">
       <img src="./src/assets/post-it-logo.png" alt="logo app" />
-      <h1>Kanban's Name App</h1>
+      <h1>Kanban&lsquo;s Name App</h1>
     </header>
   )
 }

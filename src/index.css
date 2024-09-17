@@ -33,20 +33,20 @@
   height: 70%;
 }
 
-.sidebar{
+#sidebar{
   width: 30%;
 }
 
-.board{
+#board{
   width: 70%;
 }
 
-.navbar{
+#navbar{
   width: 100%;
   height: 15%;
 }
 
-.footer{
+#footer{
   width: 100%;
   height: 15%;
 }
