@@ -1,7 +1,13 @@
 
-function SideBar() {
+function SideBar(props) {
   return (
-    <div>SideBar</div>
+    <nav id="sidebar">
+      <ul>
+        <button>Board</button>
+        <button>Add Task</button>
+        <button>About</button>
+      </ul>
+    </nav>
   )
 }
 

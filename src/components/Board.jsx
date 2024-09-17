@@ -1,4 +1,4 @@
-function Board() {
+function Board(props) {
   return (
     <div>Board</div>
   )
