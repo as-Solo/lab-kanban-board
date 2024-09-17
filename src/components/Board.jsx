@@ -1,6 +1,6 @@
-function Board() {
+function Board(props) {
   return (
-    <div>Board</div>
+    <div id="board">Board</div>
   )
 }
 
