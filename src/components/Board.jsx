@@ -1,20 +1,19 @@
+import Columna from "./Columna"
+
 function Board(props) {
+  //props.data => [{card}, {card},...]
+
+  let backlogList = props.data.filter((card) => card.status === "Backlog");
+  let inProgressList = props.data.filter((card)=> card.status === "In Progress");
+  let toDoList = props.data.filter((card)=> card.status === "To Do");
+  let doneList = props.data.filter((card)=> card.status === "Done");
+
   return (
-    <div id="board">
-      {/* Evidentemente esto se convertiran en componentes, pero para hacerme una idea */}
-      {/*
-      No me termina de convencar la ficha, he estadop mirando como lo tienen en trello, molaria que
-      dejasemos la ficha mucho mas minimalista solo con la tarea, la breve descripcion y los dias
-      restantes y que si pinchas en ella salga una ampliacion de la ficha con toda la info.
-      */}
-      <div className="columna">Backlog <hr />
-        <div className="columnaContenido">
-          
-        </div>
-      </div>
-      <div className="columna">To Do <hr /></div>
-      <div className="columna">In Progress <hr /></div>
-      <div className="columna">Done <hr /></div>
+    <div id="board">      
+        <Columna data = {backlogList}>Backlog</Columna>
+        <Columna data = {toDoList}>To Do</Columna>
+        <Columna data = {inProgressList}>Progress</Columna>
+        <Columna data = {doneList}>Done</Columna>
     </div>
   )
 }
