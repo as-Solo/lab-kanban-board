@@ -126,11 +126,12 @@
 }
 
 .columnaContenido{
-  padding-top: 20px;
+  padding-top: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 15px;
 }
 
 .ficha{
@@ -139,12 +140,16 @@
   border-radius: 3px;
   overflow: hidden;
   border-bottom: solid 1px rgb(126, 126, 126);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* margin-bottom: 15px; */
 }
 
 .fichaHeader{
   display: flex;
   justify-content: space-between;
-  background-color: rgb(0, 10, 10);
+  background-color: rgba(20, 20, 20, 0.819);
   color: white;
   padding: 7px 15px;
 }
@@ -165,9 +170,11 @@
 .asignado{
   padding:2px 15px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: baseline;
   background-color: #858585;
+  /* background-color: rgb(30, 94, 64); */
+  -webkit-text-fill-color: #00f7ff;
   color: white;
   gap: 8px;
   border-top: solid 1px rgb(30, 30, 30);
@@ -175,23 +182,34 @@
 
 .asignado p:first-child{
   font-size: .8rem;
-  font-weight: 400;
+  font-weight: 500;
+  padding: 5px;
+  background-color: rgb(30, 94, 64);
+  border-radius: 5px;
+  margin: 3px 0;
 }
 
 .fichaFaldon{
   padding: 5px 15px;
   display: flex;
   justify-content: space-around;
-  background-color: rgb(0, 7, 7);
+  /* background-color: rgb(0, 7, 7); */
 }
 
 .fechas{
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   line-height: 1rem;
-  color: white;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.fechas span{
+  font-size: .8rem;
+  font-weight: 400;
+  color: #4e4e4e;
 }
 
 .detalle{
