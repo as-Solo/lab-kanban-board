@@ -10,8 +10,9 @@ function Card(props){
     return(
         <div className="ficha">
             <div className="fichaHeader">
-                <div className="prioridad"></div>
+                <div className="prioridad">{/*props.data.priority*/}</div>
                 <div className="Tarea">{props.data.title}</div>
+                <button className="eliminar">❌</button>
             </div>
             {/* <div className="descripcion">Create a visually appealing landing page for the website.</div> */}
             <div className="fichaFaldon">
@@ -20,14 +21,13 @@ function Card(props){
                 <p>{props.data.createdDate}</p>
                 </div>
                 <hr /> */}
-                <div className="tiempoRestante fechas">
-                <p>{Math.floor(dias)} <span>días y </span>{Math.floor(horas)} <span>h. restantes</span></p>
-                </div>
             </div>
             <div className="asignado">
-                {/* <p>assignee:</p> */}
                 <p>{props.data.assignee}</p>
-                <button className="eliminar">🗑</button>
+                <div className="tiempoRestante fechas">
+                    <p>{Math.floor(dias)} <span>d </span>{Math.floor(horas)} <span>h. restantes</span></p>
+                    {/* <p>{Math.floor(dias)} <span>días y </span>{Math.floor(horas)} <span>h. restantes</span></p> */}
+                </div>
             </div>
         </div>
     );
