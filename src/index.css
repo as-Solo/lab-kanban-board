@@ -26,10 +26,14 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-image: url("./assets/background_01.jpg");
+  background-image: url("./assets/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+button {
+  cursor: pointer;
 }
 
 .center-container{
@@ -41,7 +45,8 @@
 }
 
 #sidebar{
-  background-color: rgba(0, 0, 0, 0.959);
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0.5px 20px 0px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   width: 100%;
@@ -58,23 +63,26 @@
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 3px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.95);
   color: rgb(0, 30, 30);
 }
 
 #sidebar button:hover{
   background-color: rgb(119, 196, 196);
+  color: rgb(0, 60, 60);
+  letter-spacing: 0.05em;
+  transition: 0.5s;
 }
 
 #sidebar button:active{
   color: rgb(0, 80, 80);
-  border: solid 1pxrgb(0, 80, 80);
+  border: solid 1px rgb(0, 80, 80);
 }
 
 #board{
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 15, 15, 0.952);
+  background-color: rgba(0, 15, 15, 0.205);
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -88,10 +96,11 @@
   align-items: center;
   width: 100%;
   height:90px;
-  border-bottom: solid 1px white;
+  border-bottom: solid 5px white;
   /* padding: 10px 70px; */
   padding-right: 70px;
-  background-color: rgb(0, 17, 17);
+  background-color: rgba(0, 17, 17, 1);
+  backdrop-filter: blur(10px);
   color: white;
 }
 
@@ -100,7 +109,9 @@
   height: 50px;
   display: flex;
   justify-content: center;
-  background-color: white;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
   /* #ead2ac; */
   padding-top: 5px;
 }
@@ -118,12 +129,20 @@
   width: 22%;
   min-height: 90%;
   border-radius: 5px;
-  background-color: rgb(16, 25, 25);
-  color: #00f7ff;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  
   font-weight: 700;
   padding: 15px;
   border-top: solid 10px rgba(0, 15, 15, 0.952);
   border-bottom: rgb(100, 100, 100) solid 2px;
+}
+
+.columna h4{
+  font-size: 1.1rem;
+  color: #00f7ff;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .columnaContenido{
@@ -137,7 +156,8 @@
 
 .ficha{
   width: 95%;
-  background-color: rgb(170, 170, 170);
+  background-color: rgba(211, 254, 213, 0.75);
+  /* background-color: rgb(170, 170, 170); */
   border-radius: 3px;
   overflow: hidden;
   border-bottom: solid 1px rgb(126, 126, 126);
@@ -150,7 +170,7 @@
 .fichaHeader{
   display: flex;
   justify-content: space-between;
-  background-color: rgba(20, 20, 20, 0.819);
+  background-color: rgba(20, 20, 20, 0.75);
   color: white;
   padding: 7px 15px;
 }
@@ -158,7 +178,7 @@
 .prioridad{
   background-color: rgb(114, 26, 26);
   width: 20px;
-  border-radius: 1px;
+  border-radius: 3px;
 }
 
 .descripcion{
@@ -171,17 +191,16 @@
 .asignado{
   padding:2px 15px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: baseline;
-  background-color: #858585;
+  /* background-color: #858585; */
   /* background-color: rgb(30, 94, 64); */
-  -webkit-text-fill-color: #00f7ff;
-  color: white;
+  color: #00f7ff;
   gap: 8px;
-  border-top: solid 1px rgb(30, 30, 30);
+  border-top: dashed 2px rgba(30, 30, 30, 0.25);
 }
 
-.asignado p:first-child{
+.asignado>p{
   font-size: .8rem;
   font-weight: 500;
   padding: 5px;
@@ -204,7 +223,7 @@
   align-items: center;
   line-height: 1rem;
   color: black;
-  font-size: 1.3rem;
+  font-size: 0.9rem;
 }
 
 .fechas span{
