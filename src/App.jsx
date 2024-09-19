@@ -1,9 +1,8 @@
 import Board from './components/Board'
 import NavBar from './components/NavBar'
 import SideBar from './components/SideBar'
-import Footer from './components/footer'
+import Footer from './components/Footer'
 import data from '../src/data/data.json'
-import About from './components/About'
 import { useState } from 'react'
 
 function App() {
