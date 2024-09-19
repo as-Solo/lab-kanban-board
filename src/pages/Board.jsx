@@ -1,4 +1,4 @@
-import Columna from "./Columna"
+import Columna from "../components/Columna"
 
 function Board(props) {
   //props.data => [{card}, {card},...]
@@ -10,10 +10,10 @@ function Board(props) {
 
   return (
     <div id="board">      
-        <Columna data = {backlogList}>Backlog</Columna>
-        <Columna data = {toDoList}>To Do</Columna>
-        <Columna data = {inProgressList}>Progress</Columna>
-        <Columna data = {doneList}>Done</Columna>
+        <Columna data = {backlogList} delete={props.delete}>Backlog</Columna>
+        <Columna data = {toDoList} delete={props.delete}>To Do</Columna>
+        <Columna data = {inProgressList} delete={props.delete}>Progress</Columna>
+        <Columna data = {doneList} delete={props.delete}>Done</Columna>
     </div>
   )
 }

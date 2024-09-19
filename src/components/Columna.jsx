@@ -10,7 +10,7 @@ function Columna(props) {
       <h4>{props.children} </h4>
       <hr />
       <div className="columnaContenido">
-          {props.data.map((carta)=> <Card key={carta.id} data = {carta}/>)}
+          {props.data.map((carta)=> <Card key={carta.id} data = {carta} delete={props.delete}/>)}
       </div>
     </div>
   );

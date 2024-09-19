@@ -1,3 +1,4 @@
+
 function Card(props){
     // {id, title, description, assignee, status, priority, createdDate, dueDate}
 
@@ -12,7 +13,7 @@ function Card(props){
             <div className="fichaHeader">
                 <div className="prioridad">{/*props.data.priority*/}</div>
                 <div className="Tarea">{props.data.title}</div>
-                <button className="eliminar">❌</button>
+                <button className="eliminar" onClick={()=>props.delete(props.data.id)}>❌</button>
             </div>
             {/* <div className="descripcion">Create a visually appealing landing page for the website.</div> */}
             <div className="fichaFaldon">
