@@ -11,18 +11,24 @@ import NotFound from './pages/NotFound'
 function App() {
 
   const [datApp, setDatApp] = useState(data);
+  const [showSideBar, setShowSideBar] = useState(false);
  
   const handleDelete = (index)=>{
     const copia = [...datApp]
     setDatApp(copia.filter((elem)=>elem.id !== index))
   }
 
+  const handleSideBar = () => {
+    setShowSideBar(!showSideBar);
+  }
+
   return (
 
     <div id='App'>
-      <NavBar/>
+      <NavBar handle={handleSideBar}/>
+      
       <div className='center-container'>
-        <SideBar/>
+        {showSideBar ? (<SideBar />) : null}
         <Routes>
           <Route path={"/"} element= {<Board data={datApp} delete={handleDelete}/>}/>
           <Route path={"/AddTask"} element= {<AddTask data={datApp} setData={setDatApp}/>}/>
