@@ -8,11 +8,13 @@ import { Routes, Route} from "react-router-dom"
 import AddTask from './pages/AddTask'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
+
 function App() {
 
   const [datApp, setDatApp] = useState(data);
   const [showSideBar, setShowSideBar] = useState(false);
- 
+  const [filter, setFilter] = useState(true);
+
   const handleDelete = (index)=>{
     const copia = [...datApp]
     setDatApp(copia.filter((elem)=>elem.id !== index))
@@ -30,7 +32,7 @@ function App() {
       <div className='center-container'>
         {showSideBar ? (<SideBar />) : null}
         <Routes>
-          <Route path={"/"} element= {<Board data={datApp} delete={handleDelete}/>}/>
+          <Route path={"/"} element= {<Board data={datApp} delete={handleDelete} filter={filter} setFilter={setFilter}/>}/>
           <Route path={"/AddTask"} element= {<AddTask data={datApp} setData={setDatApp}/>}/>
           <Route path={"/About"} element= {<About/>}/>
           <Route path={"*"} element= {<NotFound/>}/>
