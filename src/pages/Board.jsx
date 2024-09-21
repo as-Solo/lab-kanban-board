@@ -1,7 +1,7 @@
 import Columna from "../components/Columna"
 import '../styles/Board.css'
 import ojo from "../assets/Ojo.png"
-import { useState } from "react";
+// import { useState } from "react";
 
 function Board(props) {
   //props.data => [{card}, {card},...]
@@ -22,10 +22,18 @@ function Board(props) {
 
   let filterList = data;
   if (filter.high || filter.medium || filter.low){
-    filterList = data.filter((card) => (card.priority.toLowerCase() === filter.high || card.priority.toLowerCase() === filter.medium || card.priority.toLowerCase() === filter.low))
+    // filterList = data.filter((card) => (card.priority.toLowerCase() === filter.high || card.priority.toLowerCase() === filter.medium || card.priority.toLowerCase() === filter.low))
+    filterList = []
+    for (let elem in filter) {
+      // console.log(elem)
+      filterList = filterList.concat(data.filter(card => card.priority.toLowerCase() === filter[elem]))
+    };
   }
 
-  // console.log(filterList)
+  //* // se podria hacer con un reduce??  // la respuesta es que no se puede porque filter no es una lista 😅
+  // filter.reduce((lista, elem)=>{lista.concat.data.filter(card => card.priority.toLowerCase() === elem)}, [])
+
+  console.log(filterList)
 
   let backlogList = filterList.filter((card) => card.status === "Backlog");
   let inProgressList = filterList.filter((card)=> card.status === "In Progress" );
