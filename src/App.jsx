@@ -13,7 +13,7 @@ function App() {
 
   const [datApp, setDatApp] = useState(data);
   const [showSideBar, setShowSideBar] = useState(false);
-  const [filter, setFilter] = useState(true);
+  const [filter, setFilter] = useState({high:'', medium:'', low:''});
 
   const handleDelete = (index)=>{
     const copia = [...datApp]
