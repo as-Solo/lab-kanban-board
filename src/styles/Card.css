@@ -1,0 +1,97 @@
+
+.ficha{
+    width: 95%;
+    /* background-color: rgba(211, 254, 213, 0.75); */
+    /* background-color: rgb(170, 170, 170); */
+    border-radius: 5px;
+    border-bottom: solid 2px rgb(126, 126, 126);
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+    overflow: hidden;
+    /* margin-bottom: 15px; */
+  }
+  
+  .fichaHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(0, 20, 6);
+    color: white;
+    padding: 7px 15px;
+  }
+  
+  .prioridad{
+    width: 25px;
+    height: 12px;
+    border-radius: 3px;
+  }
+  
+  .tarea{
+    font-weight: 600;
+    color: rgb(0, 20, 20);
+    margin: 5px 0;
+    font-style: italic;
+  }
+
+  .descripcion{
+    padding: 15px 15px;
+    color: rgb(20, 20, 20);
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  
+  .asignado{
+    padding:2px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    /* background-color: #858585; */
+    background-color: rgb(30, 94, 64);
+    color: #00f7ff;
+    gap: 10px;
+    /* border-top: dashed 2px rgba(30, 30, 30, 0.25); */
+  }
+  
+  .asignado>p{
+    font-size: .8rem;
+    font-weight: 500;
+    padding: 2px 9px;
+    background-color: rgb(30, 94, 64);
+    border-radius: 5px;
+    margin: 5px 0;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.281);
+  }
+  
+  .fichaFaldon{
+    background-color: rgba(211, 254, 213, 0.75);
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: rgb(0, 7, 7); */
+  }
+  
+  .fechas{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    line-height: 1rem;
+    /* color: black; */
+    font-size: 0.9rem;
+  }
+  
+  .fechas span{
+    font-size: .8rem;
+    font-weight: 400;
+    /* color: #4e4e4e; */
+  }
+  
+  .detalle{
+    font-size: .8rem;
+    font-weight: 400;
+  }
+  
+  .fechaCreacion{
+    color: #5c5c5c;
+  }
