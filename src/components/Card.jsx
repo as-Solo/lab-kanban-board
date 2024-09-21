@@ -26,8 +26,13 @@ function Card(props){
             <div className="asignado">
                 <p>{props.data.assignee}</p>
                 <div className="tiempoRestante fechas">
-                    <p>{Math.floor(dias)} <span>d </span>{Math.floor(horas)} <span>h. restantes</span></p>
+                    {
+                        dias >= 0 ? 
+                        (<p>{Math.floor(dias)} <span>d </span>{Math.floor(horas)} <span>h. restantes</span></p>) : <p>Out of Date</p>
+                    }
                     {/* <p>{Math.floor(dias)} <span>días y </span>{Math.floor(horas)} <span>h. restantes</span></p> */}
+                    
+                
                 </div>
             </div>
         </div>

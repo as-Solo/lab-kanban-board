@@ -1,42 +1,48 @@
+import { useState } from "react";
 
+function AddTask({data, setData}) {
 
-function AddTask(props) {
-    // const copiaData = [...props.data]
-    // console.log(copiaData)
+    const [newTask, setNewTask] = useState({
+        id: +data.at(-1).id + 1,
+        title: "", 
+        description: "", 
+        assignee: 'anonymous',
+        status: "Backlog", 
+        priority: "", 
+        createdDate: new Date().toLocaleDateString('en-CA'),
+        dueDate: "", 
+    });
 
-    const handleAddTask = (title, column, priority, dueDate, description = null, asignee = 'anonymous')=>{
-        const newObject = {
-            // "id": props.data.slice(props.data.length -1).id + 1,
-            "id": props.data.at(-1).id + 1,
-            "title": title,
-            "description": description,
-            "assignee": asignee,
-            "status": column,
-            "priority": priority,
-            "createdDate": new Date().toLocaleDateString('en-CA'),
-            "dueDate": dueDate.toDate()
-        }
-        const copiaData = [...props.data, newObject]
-        props.setData(copiaData)
+    const handleChange = (event) => {
+        const clone = structuredClone(newTask);
+        clone[event.target.name] = event.target.value;
+
+        setNewTask(clone)
+    };
+
+    const handleAddTask = (event) => {
+        event.preventDefault();
+
+        setData((current)=> [...current, newTask]);
     }
 
     return (
-        <div id="addTask">
+        <form id="addTask" onSubmit={handleAddTask}>
             <div>
-                <label htmlFor="tarea">title</label>
-                <input type="text" name="tarea"/>
+                <label htmlFor="title">title</label>
+                <input onChange={handleChange} value={newTask.title} type="text" name="title"/>
             </div>
             <div>
-                <label htmlFor="descripcion">description</label>
-                <input type="text" name="descripcion"/>
+                <label htmlFor="description">description</label>
+                <input onChange={handleChange} value={newTask.description} type="text" name="description"/>
             </div>
             <div>
-                <label htmlFor="encargado">assignee</label>
-                <input type="text" name="encargado"/>
+                <label htmlFor="assignee">assignee</label>
+                <input onChange={handleChange} value={newTask.assignee} type="text" name="assignee"/>
             </div>
             <div>
-                <label htmlFor="columna">status</label>
-                <select name="columna" id="lang">
+                <label htmlFor="status">status</label>
+                <select onChange={handleChange} value={newTask.status} name="status" id="lang">
                     <option value="Backlog">Backlog</option>
                     <option value="To Do">To Do</option>
                     <option value="In Progress">In Progress</option>
@@ -45,8 +51,8 @@ function AddTask(props) {
                 </select>
             </div>
             <div>
-                <label htmlFor="prioridad">priority</label>
-                <select name="prioridad" id="lang">
+                <label htmlFor="priority">priority</label>
+                <select onChange={handleChange} value={newTask.priority} name="priority" id="lang">
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
@@ -54,11 +60,11 @@ function AddTask(props) {
             </div>
             
             <div>
-                <label htmlFor="deadline" >due date</label>
-                <input type="date" name="deadline" min = {new Date().toLocaleDateString('en-CA')}/>
+                <label htmlFor="dueDate" >due date</label>
+                <input onChange={handleChange} value={newTask.dueDate} type="date" name="dueDate" min = {new Date().toLocaleDateString('en-CA')}/>
             </div>
-            <button onClick={()=>handleAddTask()}>TaskFlow</button>
-        </div>
+            <button>TaskFlow</button>
+        </form>
     )
 }
 

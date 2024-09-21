@@ -119,6 +119,11 @@ button {
   color: white;
 }
 
+.menu-btn{
+  width: 20px;
+  cursor: pointer;
+}
+
 .bgLogos{
   display: flex;
   justify-content: space-between;
@@ -270,4 +275,70 @@ button {
 
 .fechaCreacion{
   color: #5c5c5c;
+}
+
+#about{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 40px;
+  width: 50%;
+  min-height: 80%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  max-width: 600px;
+  font-weight: 700;
+  margin-top: 20px;
+  border-top: solid 10px rgba(0, 15, 15, 0.952);
+  border-bottom: rgb(100, 100, 100) solid 2px;
+}
+
+#about>div{
+  display: flex;
+
+  gap: 50px
+}
+
+#about h1{
+  margin: 20px 0px;
+  
+}
+#about p{
+  font-size: 0.8rem;
+  text-align: justify;
+}
+
+.student-row{
+  display: flex;
+  justify-content: space-around;
+  min-height: 60%;
+}
+
+.student-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.27);
+  border-radius: 10px;
+  text-align: center;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.student-img{
+  width: 100%;
+  border-radius: 50%;
+  align-self: center;
+  padding: 20px;
+}
+
+.student-rrss{
+  display: flex;
+  justify-content: space-between;
+}
+
+#about a img{
+  width: 20%;
 }
