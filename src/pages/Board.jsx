@@ -5,12 +5,10 @@ import ojo from "../assets/Ojo.png"
 
 function Board(props) {
   //props.data => [{card}, {card},...]
-  const {filter, setFilter, data} = props;
+  const {filter, setFilter, data, filterName, setFilterName} = props;
 
   const handleFilter = (event) => {
     let clone = structuredClone(filter)
-    // console.log(event.target.name)
-    // console.log(event.target.checked)
     if (event.target.checked){
       clone[event.target.name] = event.target.name
     }
@@ -20,7 +18,17 @@ function Board(props) {
     setFilter(clone)
   };
 
+  const handleFilterName = (event) => {
+    let clone = filterName;
+    clone = event.target.value
+    // console.log(filterName)
+    setFilterName(clone)
+  }
+
   let filterList = data;
+
+  filterList = data.filter(elem => elem.assignee.toLowerCase().startsWith(filterName.toLowerCase()))
+
   if (filter.high || filter.medium || filter.low){
     // filterList = data.filter((card) => (card.priority.toLowerCase() === filter.high || card.priority.toLowerCase() === filter.medium || card.priority.toLowerCase() === filter.low))
     filterList = []
@@ -29,11 +37,9 @@ function Board(props) {
       filterList = filterList.concat(data.filter(card => card.priority.toLowerCase() === filter[elem]))
     };
   }
-
   //* // se podria hacer con un reduce??  // la respuesta es que no se puede porque filter no es una lista 😅
   // filter.reduce((lista, elem)=>{lista.concat.data.filter(card => card.priority.toLowerCase() === elem)}, [])
-
-  console.log(filterList)
+  // console.log(filterList)
 
   let backlogList = filterList.filter((card) => card.status === "Backlog");
   let inProgressList = filterList.filter((card)=> card.status === "In Progress" );
@@ -61,7 +67,7 @@ function Board(props) {
           </div>
           <div>
             <label htmlFor="assignee">Assignee: </label>
-            <input type="text" name="assignee"/>
+            <input onChange={handleFilterName} type="text" name="assignee" value={filterName}/>
           </div>
         </div>
         <hr />

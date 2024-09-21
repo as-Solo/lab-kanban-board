@@ -13,6 +13,7 @@ function App() {
 
   const [datApp, setDatApp] = useState(data);
   const [showSideBar, setShowSideBar] = useState(false);
+  const [filterName, setFilterName] = useState('')
   const [filter, setFilter] = useState({high:'', medium:'', low:''});
 
   const handleDelete = (index)=>{
@@ -32,7 +33,7 @@ function App() {
       <div className='center-container'>
         {showSideBar ? (<SideBar />) : null}
         <Routes>
-          <Route path={"/"} element= {<Board data={datApp} delete={handleDelete} filter={filter} setFilter={setFilter}/>}/>
+          <Route path={"/"} element= {<Board data={datApp} delete={handleDelete} filter={filter} setFilter={setFilter} filterName={filterName} setFilterName={setFilterName}/>}/>
           <Route path={"/AddTask"} element= {<AddTask data={datApp} setData={setDatApp}/>}/>
           <Route path={"/About"} element= {<About/>}/>
           <Route path={"*"} element= {<NotFound/>}/>
