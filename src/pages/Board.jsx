@@ -36,7 +36,7 @@ function Board(props) {
       filterListName = filterListName.concat(filterList.filter(card => card.priority.toLowerCase() === filter[elem]))
     };
   }
-  console.log(filterListName)
+  // console.log(filterListName)
   //* // se podria hacer con un reduce??  // la respuesta es que no se puede porque filter no es una lista 😅
   // filter.reduce((lista, elem)=>{lista.concat.data.filter(card => card.priority.toLowerCase() === elem)}, [])
   // console.log(filterList)

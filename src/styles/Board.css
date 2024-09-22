@@ -17,6 +17,17 @@
     /* border: 1px solid red; */
 }
 
+.botonera input{
+    background-color: rgba(0, 15, 15, 0.8);
+    border: solid rgb(22, 170, 145);
+    border-width: 0 2px 2px 0;
+    min-height: 20px;
+    border-radius: 3px;
+    color: aqua;
+    width: 150px;
+    padding-left: 10px;
+}
+
 .fondo-botonera hr{
     max-width: 900px;
     width: 70%;

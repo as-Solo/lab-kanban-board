@@ -1,136 +1,135 @@
 
 .redondeadito{
-  width: 95%;
+  width: 100%;
   border-radius: 5px;
   overflow: hidden;
   flex-grow: 0;
   flex-basis: auto;
   flex-shrink: 0;
+  /* border:solid 1px red; */
 }
 
 .ficha{
   width: 100%;
-    /* background-color: rgba(211, 254, 213, 0.75); */
-    /* background-color: rgb(170, 170, 170); */
-    /* border-bottom: solid 2px rgb(126, 126, 126); */
-    display: flex;
-    flex-direction: column;
-    /* gap: 5px; */
-    /* margin-bottom: 15px; */
-  }
-  
-  .fichaHeader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(0, 20, 6);
-    color: white;
-    padding: 7px 15px;
-  }
-  
-  .prioridad{
-    width: 25px;
-    height: 12px;
-    border-radius: 3px;
-  }
-  
-  .tarea{
-    font-weight: 600;
-    color: rgb(0, 20, 20);
-    margin: 5px 0;
-    font-style: italic;
-    padding: 0 10px;
-    text-align: center;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-  .descripcion{
-    padding: 15px 15px;
-    color: rgb(20, 20, 20);
-    font-weight: 500;
-    font-size: 1.1rem;
-  }
-  
-  .asignado{
-    padding:2px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    /* background-color: #858585; */
-    background-color: rgb(30, 94, 64);
-    color: #00f7ff;
-    gap: 10px;
-    border-bottom: solid 1px white;
-    /* border-top: dashed 2px rgba(30, 30, 30, 0.25); */
-  }
-  
-  .asignado>p{
-    font-size: .8rem;
-    font-weight: 500;
-    padding: 2px 9px;
-    background-color: rgb(30, 94, 64);
-    border-radius: 5px;
-    margin: 5px 0;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.281);
-  }
+.fichaHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 20, 6);
+  color: white;
+  padding: 7px 15px;
+}
 
-  .eliminar{
-    margin: 5px 0;
-  }
-  
-  .fichaFaldon{
-    background-color: rgba(211, 254, 213, 0.75);
-    padding: 5px 15px;
-    display: flex;
-    justify-content: space-around;
-    /* background-color: rgb(0, 7, 7); */
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .fechas{
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    align-items: center;
-    line-height: 1rem;
-    /* color: black; */
-    font-size: 0.9rem;
-  }
-  
-  .fechas span{
-    font-size: .8rem;
-    font-weight: 400;
-    /* color: #4e4e4e; */
-  }
-  
-  .detalle{
-    font-size: .8rem;
-    font-weight: 400;
-  }
-  
-  .fechaCreacion{
-    color: #5c5c5c;
-  }
+.prioridad{
+  width: 25px;
+  height: 12px;
+  border-radius: 3px;
+}
 
-  .selector{
-    display: flex;
-    height: 35px;
-    background-color: rgba(255, 255, 255, 0.16);
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-    position: absolute;
-    padding-bottom: 5px;
-    color: aquamarine;
-  }
+.tarea{
+  font-weight: 600;
+  color: rgb(0, 20, 20);
+  margin: 5px 0;
+  font-style: italic;
+  padding: 0 10px;
+  text-align: center;
+  width: 100%;
+}
 
-  .previous{
-    left: 5px;
-  }
+.descripcion{
+  width: 100%;
+  padding: 15px 15px;
+  color: rgb(20, 20, 20);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
 
-  .next{
-    right: 5px;
-  }
+.asignado{
+  width: 100%;
+  padding:2px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  /* background-color: #858585; */
+  background-color: rgb(30, 94, 64);
+  color: #00f7ff;
+  gap: 10px;
+  border-bottom: solid 1px white;
+  /* border-top: dashed 2px rgba(30, 30, 30, 0.25); */
+}
+
+.asignado>p{
+  font-size: .8rem;
+  font-weight: 500;
+  padding: 2px 9px;
+  background-color: rgb(30, 94, 64);
+  border-radius: 5px;
+  margin: 5px 0;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.281);
+}
+
+.eliminar{
+  margin: 5px 0;
+}
+
+.fichaFaldon{
+  background-color: rgba(211, 254, 213, 0.75);
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-around;
+  /* background-color: rgb(0, 7, 7); */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fechas{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  line-height: 1rem;
+  /* color: black; */
+  font-size: 0.9rem;
+}
+
+.fechas span{
+  font-size: .8rem;
+  font-weight: 400;
+  /* color: #4e4e4e; */
+}
+
+.detalle{
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+.fechaCreacion{
+  color: #5c5c5c;
+}
+
+.selector{
+  display: flex;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.16);
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  position: absolute;
+  padding-bottom: 5px;
+  color: aquamarine;
+}
+
+.previous{
+  left: 5px;
+}
+
+.next{
+  right: 5px;
+}

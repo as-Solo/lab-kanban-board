@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import "../styles/Card.css"
+
 function Card(props){
     // {id, title, description, assignee, status, priority, createdDate, dueDate}
 
@@ -34,32 +36,34 @@ function Card(props){
     
     return(
         <div className="redondeadito">
-            <div className="ficha">
-                <div className="fichaHeader">
-                    <div className="prioridad" style={{backgroundColor: backgroundPriority}}>{/*props.card.priority*/}</div>
-                    <div className="tiempoRestante fechas">
-                    {card.status === "Done" 
-                    ? <p style={{color: 'rgb(40, 180, 40)', fontStyle:'italic'}}>Finished!!</p>
-                    : dias >= 0
-                    ? (<p>{Math.floor(dias)} <span>days </span>{Math.floor(horas)} <span>hours</span></p>)
-                    : <p style={{color: 'rgb(40, 80, 40)'}}>Overdue</p>
-                    }
+                <div className="ficha">
+                <Link to={`/Board/${card.id}`}>
+                    <div className="fichaHeader">
+                        <div className="prioridad" style={{backgroundColor: backgroundPriority}}>{/*props.card.priority*/}</div>
+                        <div className="tiempoRestante fechas">
+                        {card.status === "Done" 
+                        ? <p style={{color: 'rgb(40, 180, 40)', fontStyle:'italic'}}>Finished!!</p>
+                        : dias >= 0
+                        ? (<p>{Math.floor(dias)} <span>days </span>{Math.floor(horas)} <span>hours</span></p>)
+                        : <p style={{color: 'rgb(40, 80, 40)'}}>Overdue</p>
+                        }
+                        </div>
                     </div>
-                </div>
-                <div className="fichaFaldon">
-                    {columns.indexOf(card.status) !== 0 && <div onClick={()=>handleChangeColumn(event)} className="selector previous" id={'-1'}>&lt;</div>}
-                        <div className="tarea">&lt;{card.title}/&gt;</div>
-                    {columns[columns.length - 1] !== card.status &&  <div onClick={()=>handleChangeColumn(event)} className="selector next" id={'+1'}>&gt;</div>}
-                
+        </Link>
+                    <div className="fichaFaldon">
+                        {columns.indexOf(card.status) !== 0 && <div onClick={()=>handleChangeColumn(event)} className="selector previous" id={'-1'}>&lt;</div>}
+                            <div className="tarea">&lt;{card.title}/&gt;</div>
+                        {columns[columns.length - 1] !== card.status &&  <div onClick={()=>handleChangeColumn(event)} className="selector next" id={'+1'}>&gt;</div>}
+                    
 
+                    </div>
+                    <div className="asignado">
+                        <p style={{visibility: card.assignee ? 'visible':'hidden'}}>{card.assignee}</p>
+                        <button className="eliminar" onClick={()=>deleteCard(card.id)}>❌</button>
+                    </div>
+                    
                 </div>
-                <div className="asignado">
-                    <p style={{visibility: card.assignee ? 'visible':'hidden'}}>{card.assignee}</p>
-                    <button className="eliminar" onClick={()=>deleteCard(card.id)}>❌</button>
-                </div>
-                
             </div>
-        </div>
     );
 }
 

@@ -64,7 +64,7 @@ button {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   /* justify-content: space-evenly; */
   justify-content: center;
   gap: 50px;
@@ -163,7 +163,7 @@ button {
 
 .columna{
   width: 22%;
-  height: 620px;
+  height: 580px;
   /* max-height: 500px; */
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -186,6 +186,7 @@ button {
 }
 
 .columnaContenido{
+  /* border: 1px solid red; */
   padding-top: 25px;
   display: flex;
   flex-direction: column;
@@ -194,7 +195,6 @@ button {
   gap: 15px;
   max-height: 100%;
   overflow-y: auto;
-  /* border: 1px solid red; */
 }
 
 #about{
@@ -265,20 +265,24 @@ button {
 
 
 .columnaContenido::-webkit-scrollbar {
-  width: 12px; /* Ancho de la barra de desplazamiento */
+  width: 12px; 
 }
 
 .columnaContenido::-webkit-scrollbar-track {
   margin: 10px;
-  background: #83cea267; /* Color del fondo de la pista */
-  border-radius: 10px; /* Esquinas redondeadas */
+  background: #83cea267; 
+  border-radius: 10px; 
 }
 
 .columnaContenido::-webkit-scrollbar-thumb {
-  background: rgb(0, 17, 17); /* Color de la parte desplazable */
-  border-radius: 5px; /* Esquinas redondeadas */
+  background: rgb(0, 17, 17); 
+  border-radius: 5px; 
 }
 
 .columnaContenido::-webkit-scrollbar-thumb:hover {
-  background:rgb(0, 10, 10); /* Color al pasar el mouse */
+  background:rgb(0, 10, 10); 
+}
+
+a{
+  text-decoration: none;
 }
