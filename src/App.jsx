@@ -33,8 +33,8 @@ function App() {
       <div className='center-container'>
         {showSideBar ? (<SideBar />) : null}
         <Routes>
-          <Route path={"/"} element= {<Board data={datApp} delete={handleDelete} filter={filter} setFilter={setFilter} filterName={filterName} setFilterName={setFilterName}/>}/>
-          <Route path={"/AddTask"} element= {<AddTask data={datApp} setData={setDatApp}/>}/>
+          <Route path={"/"} element= {<Board datApp={datApp} delete={handleDelete} filter={filter} setFilter={setFilter} filterName={filterName} setFilterName={setFilterName} setDatApp={setDatApp}/>}/>
+          <Route path={"/AddTask"} element= {<AddTask datApp={datApp} setData={setDatApp}/>}/>
           <Route path={"/About"} element= {<About/>}/>
           <Route path={"*"} element= {<NotFound/>}/>
         </Routes>        

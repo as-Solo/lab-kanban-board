@@ -5,7 +5,7 @@ import ojo from "../assets/Ojo.png"
 
 function Board(props) {
   //props.data => [{card}, {card},...]
-  const {filter, setFilter, data, filterName, setFilterName} = props;
+  const {filter, setFilter, datApp, filterName, setFilterName, setDatApp} = props;
 
   const handleFilter = (event) => {
     let clone = structuredClone(filter)
@@ -25,16 +25,16 @@ function Board(props) {
     setFilterName(clone)
   }
 
-  let filterList = data;
+  let filterList = datApp;
 
-  filterList = data.filter(elem => elem.assignee.toLowerCase().startsWith(filterName.toLowerCase()))
+  filterList = datApp.filter(elem => elem.assignee.toLowerCase().startsWith(filterName.toLowerCase()))
 
   if (filter.high || filter.medium || filter.low){
     // filterList = data.filter((card) => (card.priority.toLowerCase() === filter.high || card.priority.toLowerCase() === filter.medium || card.priority.toLowerCase() === filter.low))
     filterList = []
     for (let elem in filter) {
       // console.log(elem)
-      filterList = filterList.concat(data.filter(card => card.priority.toLowerCase() === filter[elem]))
+      filterList = filterList.concat(datApp.filter(card => card.priority.toLowerCase() === filter[elem]))
     };
   }
   //* // se podria hacer con un reduce??  // la respuesta es que no se puede porque filter no es una lista 😅
@@ -73,10 +73,10 @@ function Board(props) {
         <hr />
       </div>
       <div id="board">
-          <Columna data = {backlogList} delete={props.delete}>Backlog</Columna>
-          <Columna data = {toDoList} delete={props.delete}>To Do</Columna>
-          <Columna data = {inProgressList} delete={props.delete}>Progress</Columna>
-          <Columna data = {doneList} delete={props.delete}>Done</Columna>
+          <Columna data = {backlogList} delete={props.delete} setDatApp={setDatApp} datApp={datApp}>Backlog</Columna>
+          <Columna data = {toDoList} delete={props.delete} setDatApp={setDatApp} datApp={datApp}>To Do</Columna>
+          <Columna data = {inProgressList} delete={props.delete} setDatApp={setDatApp} datApp={datApp}>Progress</Columna>
+          <Columna data = {doneList} delete={props.delete} setDatApp={setDatApp} datApp={datApp}>Done</Columna>
       </div>
     </>
   )
