@@ -13,11 +13,11 @@ function Card(props){
     const handleChangeColumn = (event)=>{
         let indexColumn = columns.indexOf(card.status) + +event.target.id
         let clone = structuredClone(datApp)
-        console.log(clone)
+        // console.log(clone)
         let object = clone.find((elem) => elem.id === card.id)
-        console.log(object)
+        // console.log(object)
         object.status = columns[indexColumn]
-        console.log(clone)
+        // console.log(clone)
         setDatApp(clone)
     }
 

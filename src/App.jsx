@@ -9,6 +9,10 @@ import AddTask from './pages/AddTask'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 
+// Molaria añadirle un valor a las fichas que fuera fecha ded modificacion, y que cada vez que se cambiase algo en la ficha
+// el valor tomase el today para luego ordenarlas en las columnas por ese valor
+// de mas antigua a mas nueva.
+
 function App() {
 
   const [datApp, setDatApp] = useState(data);

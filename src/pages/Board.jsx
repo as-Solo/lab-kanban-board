@@ -21,30 +21,30 @@ function Board(props) {
   const handleFilterName = (event) => {
     let clone = filterName;
     clone = event.target.value
-    // console.log(filterName)
     setFilterName(clone)
   }
-
-  let filterList = datApp;
-
-  filterList = datApp.filter(elem => elem.assignee.toLowerCase().startsWith(filterName.toLowerCase()))
-
+  
+  let filterList = datApp.filter(elem => elem.assignee.toLowerCase().startsWith(filterName.toLowerCase()));
+  let filterListName = filterList;
+  
+  
   if (filter.high || filter.medium || filter.low){
     // filterList = data.filter((card) => (card.priority.toLowerCase() === filter.high || card.priority.toLowerCase() === filter.medium || card.priority.toLowerCase() === filter.low))
-    filterList = []
+    filterListName = []
     for (let elem in filter) {
-      // console.log(elem)
-      filterList = filterList.concat(datApp.filter(card => card.priority.toLowerCase() === filter[elem]))
+      // filterList = filterList.concat(datApp.filter(card => card.priority.toLowerCase() === filter[elem]))
+      filterListName = filterListName.concat(filterList.filter(card => card.priority.toLowerCase() === filter[elem]))
     };
   }
+  console.log(filterListName)
   //* // se podria hacer con un reduce??  // la respuesta es que no se puede porque filter no es una lista 😅
   // filter.reduce((lista, elem)=>{lista.concat.data.filter(card => card.priority.toLowerCase() === elem)}, [])
   // console.log(filterList)
 
-  let backlogList = filterList.filter((card) => card.status === "Backlog");
-  let inProgressList = filterList.filter((card)=> card.status === "In Progress" );
-  let toDoList = filterList.filter((card)=> card.status === "To Do" && props.filter);
-  let doneList = filterList.filter((card)=> card.status === "Done");
+  let backlogList = filterListName.filter((card) => card.status === "Backlog");
+  let inProgressList = filterListName.filter((card)=> card.status === "In Progress" );
+  let toDoList = filterListName.filter((card)=> card.status === "To Do" && props.filter);
+  let doneList = filterListName.filter((card)=> card.status === "Done");
 
   return (
     <>

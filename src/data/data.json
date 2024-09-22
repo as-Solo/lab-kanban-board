@@ -48,5 +48,25 @@
       "priority": "Low",
       "createdDate": "2024-09-20",
       "dueDate": "2024-09-20"
+    },
+    {
+      "id": "6",
+      "title": "Update Columns's Script",
+      "description": "Update user documentation with the latest features and changes.",
+      "assignee": "John Wayne",
+      "status": "In Progress",
+      "priority": "Low",
+      "createdDate": "2024-09-20",
+      "dueDate": "2024-11-20"
+    },
+    {
+      "id": "7",
+      "title": "Make a good design",
+      "description": "Beautiful things for everybody",
+      "assignee": "Sharon Davis",
+      "status": "To Do",
+      "priority": "Medium",
+      "createdDate": "2024-09-20",
+      "dueDate": "2024-09-28"
     }
   ]
