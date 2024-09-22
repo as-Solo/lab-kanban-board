@@ -1,10 +1,10 @@
 import '../styles/AddTask.css'
 import { useState } from "react";
 
-function AddTask({data, setData}) {
+function AddTask({datApp, setData}) {
 
     const [newTask, setNewTask] = useState({
-        id: +data.at(-1).id + 1,
+        id: +datApp.at(-1).id + 1,
         title: "", 
         description: "", 
         assignee: 'Unassigned',
@@ -26,7 +26,7 @@ function AddTask({data, setData}) {
 
         setData((current)=> [...current, newTask]);
         setNewTask({
-            id: +data.at(-1).id + 2,
+            id: +datApp.at(-1).id + 2,
             title: "", 
             description: "", 
             assignee: 'Unassigned',
