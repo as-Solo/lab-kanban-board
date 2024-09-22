@@ -1,8 +1,8 @@
 function About (){
     return(
         <div id="about">
-            <h1>About page</h1>
-            <p>A Kanban Board app where the user can create, organize, and manage tasks through columns “To Do”, “In Progress”, and “Done”.</p>
+            <h1>About us</h1>
+            <p>A Kanban Board app where the user can create, organize, and manage tasks through columns "Backlog, “To Do”, “In Progress” and “Done”.</p>
             <div className="student-row">
                 <div className="student-card">
                     <h2>Alejandro del Solo</h2>
