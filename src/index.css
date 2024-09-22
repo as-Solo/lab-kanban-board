@@ -163,7 +163,8 @@ button {
 
 .columna{
   width: 22%;
-  min-height: 90%;
+  height: 620px;
+  /* max-height: 500px; */
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
@@ -172,6 +173,9 @@ button {
   padding: 15px;
   border-top: solid 10px rgba(0, 15, 15, 0.952);
   border-bottom: rgb(100, 100, 100) solid 2px;
+  /* overflow-y: hidden; */
+  display: flex;
+  flex-direction: column;
 }
 
 .columna h4{
@@ -185,9 +189,12 @@ button {
   padding-top: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 15px;
+  max-height: 100%;
+  overflow-y: auto;
+  /* border: 1px solid red; */
 }
 
 #about{
@@ -254,4 +261,24 @@ button {
 
 #about a img{
   width: 20%;
+}
+
+
+.columnaContenido::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+.columnaContenido::-webkit-scrollbar-track {
+  margin: 10px;
+  background: #83cea267; /* Color del fondo de la pista */
+  border-radius: 10px; /* Esquinas redondeadas */
+}
+
+.columnaContenido::-webkit-scrollbar-thumb {
+  background: rgb(0, 17, 17); /* Color de la parte desplazable */
+  border-radius: 5px; /* Esquinas redondeadas */
+}
+
+.columnaContenido::-webkit-scrollbar-thumb:hover {
+  background:rgb(0, 10, 10); /* Color al pasar el mouse */
 }
