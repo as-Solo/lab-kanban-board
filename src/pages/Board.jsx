@@ -1,6 +1,7 @@
 import Columna from "../components/Columna"
 import '../styles/Board.css'
 import ojo from "../assets/Ojo.png"
+import { useState } from "react";
 // import { useState } from "react";
 
 function Board(props) {
@@ -46,6 +47,27 @@ function Board(props) {
   let toDoList = filterListName.filter((card)=> card.status === "To Do" && props.filter);
   let doneList = filterListName.filter((card)=> card.status === "Done");
 
+  const [cardSelected, setCardSelected] = useState(null) 
+  
+  const handleDragOver = (event)=>{
+    event.preventDefault()
+  }
+
+  const handleDrop= (event, name, cardSelected)=>{
+    event.preventDefault()
+    if(name){
+      let clone = structuredClone(datApp)
+      let index = clone.findIndex(elem=>elem.id === cardSelected.id)
+      // console.log(clone[index])
+      clone[index] = cardSelected
+      clone[index].status = name
+      // console.log(clone[index])
+
+      setDatApp(clone)
+      setCardSelected(null)
+    }
+  }
+
   return (
     <>
       <div className="fondo-botonera">
@@ -73,10 +95,10 @@ function Board(props) {
         <hr />
       </div>
       <div id="board">
-          <Columna data = {backlogList} delete={props.delete} setDatApp={setDatApp} datApp={datApp}>Backlog</Columna>
-          <Columna data = {toDoList} delete={props.delete} setDatApp={setDatApp} datApp={datApp}>To Do</Columna>
-          <Columna data = {inProgressList} delete={props.delete} setDatApp={setDatApp} datApp={datApp}>Progress</Columna>
-          <Columna data = {doneList} delete={props.delete} setDatApp={setDatApp} datApp={datApp}>Done</Columna>
+          <Columna data = {backlogList} delete={props.delete} setDatApp={setDatApp} datApp={datApp} handleDragOver={handleDragOver} handleDrop={handleDrop} cardSelected={cardSelected} setCardSelected={setCardSelected}>Backlog</Columna>
+          <Columna data = {toDoList} delete={props.delete} setDatApp={setDatApp} datApp={datApp} handleDragOver={handleDragOver} handleDrop={handleDrop} cardSelected={cardSelected} setCardSelected={setCardSelected}>To Do</Columna>
+          <Columna data = {inProgressList} delete={props.delete} setDatApp={setDatApp} datApp={datApp} handleDragOver={handleDragOver} handleDrop={handleDrop} cardSelected={cardSelected} setCardSelected={setCardSelected}>In Progress</Columna>
+          <Columna data = {doneList} delete={props.delete} setDatApp={setDatApp} datApp={datApp} handleDragOver={handleDragOver} handleDrop={handleDrop} cardSelected={cardSelected} setCardSelected={setCardSelected}>Done</Columna>
       </div>
     </>
   )

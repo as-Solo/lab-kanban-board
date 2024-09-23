@@ -6,7 +6,7 @@ import "../styles/EditTask.css"
 
 function EditTask(props) {
 
-    const {datApp, setDatApp} = props
+    const {datApp, setDatApp } = props
     const { task } = useParams()
 
     let clone = structuredClone(datApp)

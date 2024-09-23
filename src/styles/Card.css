@@ -53,7 +53,7 @@
   padding:2px 15px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   /* background-color: #858585; */
   background-color: rgb(30, 94, 64);
   color: #00f7ff;
@@ -73,7 +73,18 @@
 }
 
 .eliminar{
+  width: 20px;
+  height: 20px;
   margin: 5px 0;
+  padding: 3px 2px 2px;
+  border-radius: 3px;
+  border: 1px solid rgba(119, 253, 130, 0.459);
+  background-color: rgba(67, 201, 112, 0.288);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color:rgb(4, 236, 128);
 }
 
 .fichaFaldon{

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import "../styles/Card.css"
+import trash from"../assets/trash.png"
 
 function Card(props){
     // {id, title, description, assignee, status, priority, createdDate, dueDate}
 
-    const { card, deleteCard, setDatApp, datApp } = props
+    const { card, deleteCard, setDatApp, datApp, cardSelected, setCardSelected } = props
     //calcular Date
     const dueDate = new Date(props.card.dueDate);
     const today = new Date();
@@ -23,6 +24,16 @@ function Card(props){
         setDatApp(clone)
     }
 
+    const handleDragStart = (event) => {
+        // console.log('Hola')
+        const clone = structuredClone(datApp)
+        const carta = clone.find((card) => {
+          return card.id == event.target.id;
+        });
+        // console.log(carta)
+        setCardSelected(carta)
+      };
+
     let backgroundPriority;
     if (card.priority === "High"){
         backgroundPriority = 'rgb(114, 26, 26)'
@@ -35,7 +46,7 @@ function Card(props){
     }
     
     return(
-        <div className="redondeadito">
+        <div className="redondeadito" draggable={true} onDragStart={(event)=>handleDragStart(event)} onDragEnd={(event)=>handleDragStart(event)} id ={card.id}>
                 <div className="ficha">
                 <Link to={`/Board/${card.id}`}>
                     <div className="fichaHeader">
@@ -59,7 +70,10 @@ function Card(props){
                     </div>
                     <div className="asignado">
                         <p style={{visibility: card.assignee ? 'visible':'hidden'}}>{card.assignee}</p>
-                        <button className="eliminar" onClick={()=>deleteCard(card.id)}>❌</button>
+                        <button className="eliminar" onClick={()=>deleteCard(card.id)}>
+                            X{/* <img src={trash} alt="" /> */}
+                            {/* <div></div> */}
+                        </button>
                     </div>
                     
                 </div>
