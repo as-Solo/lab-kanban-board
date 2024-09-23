@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Board(props) {
   //datApp delete filter setFilter filterName setFilterName setDatApp
-  const {filter, setFilter, datApp, filterName, setFilterName, setDatApp} = props;
+  const {filter, setFilter, datApp, filterName, setFilterName, setDatApp, orderBy, setOrderBy, invert, setInvert} = props;
 
   const handleFilter = (event) => {
     let clone = structuredClone(filter)
@@ -36,7 +36,20 @@ function Board(props) {
       filterListName = filterListName.concat(filterList.filter(card => card.priority.toLowerCase() === filter[elem]))
     };
   }
-  // console.log(filterListName)
+
+  const sortPropio = (a, b)=>{
+    let aO = a[orderBy] || ''
+    let bO = b[orderBy] || ''
+    const priorityIndex = ["Low", "Medium", "High"]
+    if (orderBy === 'priority'){
+      aO = priorityIndex.indexOf(a[orderBy]).toString()
+      bO = priorityIndex.indexOf(b[orderBy]).toString()
+      console.log(aO, bO)
+    }
+    return invert ? (aO.localeCompare(bO)) : (bO.localeCompare(aO))
+  }
+  filterListName.sort((a, b)=> sortPropio(a, b))
+  // console.log(orderBy)
   //* // se podria hacer con un reduce??  // la respuesta es que no se puede porque filter no es una lista 😅
   // filter.reduce((lista, elem)=>{lista.concat.data.filter(card => card.priority.toLowerCase() === elem)}, [])
   // console.log(filterList)
@@ -67,6 +80,15 @@ function Board(props) {
     }
   }
 
+  const handleOrderBy = (event)=>{
+    // console.log(event.target.value)
+    setOrderBy(event.target.value)
+  }
+
+  const handleInvert = (event)=>{
+    setInvert(event.target.checked)
+  }
+
   return (
     <>
       <div className="fondo-botonera">
@@ -89,6 +111,19 @@ function Board(props) {
           <div>
             <label htmlFor="assignee">Assignee: </label>
             <input onChange={handleFilterName} type="text" name="assignee" value={filterName}/>
+          </div>
+          <div className="order-by-container">
+            <select onChange={()=>handleOrderBy(event)} name="orderBy" id="orderBy" value={orderBy}>
+              <option value="title">title</option>
+              <option value="assignee">assignee</option>
+              <option value="priority">priority</option>
+              <option value="createdDate">created date</option>
+              <option value="dueDate">due date</option>
+            </select>
+            <div className="order-by-checkbox">
+              <input onChange={()=>handleInvert(event)} type="checkbox" value={invert}/>
+              <p>{invert ? '⇵' : '⇅'}</p>
+            </div>
           </div>
         </div>
         <hr />

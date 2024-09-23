@@ -11,6 +11,7 @@
     width: 85%;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 50px;
     padding: 40px 0 20px;
     font-weight: 500;
@@ -70,4 +71,31 @@
 
 .filtros > div input:checked + .img-check{
     display: block;
+}
+
+.order-by-container{
+    display: flex;
+    gap: 15px;
+}
+.order-by-container select{
+    width: 120px;
+}
+
+.order-by-checkbox{
+    border: solid 2px rgb(22, 170, 145);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 15, 15, 0.39);
+    position: relative;
+    border-radius: 4px;
+    width: 26px;
+    height: 24px;
+    color: rgb(22, 170, 145);;
+}
+
+.order-by-checkbox input{
+    width: 26px;
+    opacity: 0;
+    position: absolute;
 }

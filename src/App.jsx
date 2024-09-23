@@ -21,6 +21,8 @@ function App() {
   const [showSideBar, setShowSideBar] = useState(false);
   const [filterName, setFilterName] = useState('')
   const [filter, setFilter] = useState({high:'', medium:'', low:''});
+  const [orderBy, setOrderBy] = useState('assignee')
+  const [invert, setInvert] = useState(false)
   
   const [toast, setToast] = useState("");
 
@@ -48,7 +50,7 @@ function App() {
       <div className='center-container'>
         {showSideBar ? (<SideBar />) : null}
         <Routes>
-          <Route path={"/"} element= {<Board datApp={datApp} delete={handleDelete} filter={filter} setFilter={setFilter} filterName={filterName} setFilterName={setFilterName} setDatApp={setDatApp}/>}/>
+          <Route path={"/"} element= {<Board datApp={datApp} delete={handleDelete} filter={filter} setFilter={setFilter} filterName={filterName} setFilterName={setFilterName} setDatApp={setDatApp} orderBy={orderBy} setOrderBy={setOrderBy} invert={invert} setInvert={setInvert}/>}/>
           <Route path={"/AddTask"} element= {<AddTask datApp={datApp} setData={setDatApp} setToast={setToast}/>}/>
           <Route path={"/About"} element= {<About/>}/>
           <Route path={"/Board/:task"} element= {<EditTask datApp={datApp} delete={handleDelete} filter={filter} setFilter={setFilter} filterName={filterName} setFilterName={setFilterName} setDatApp={setDatApp} setToast={setToast}/>}/>
