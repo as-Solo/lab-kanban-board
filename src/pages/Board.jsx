@@ -2,10 +2,9 @@ import Columna from "../components/Columna"
 import '../styles/Board.css'
 import ojo from "../assets/Ojo.png"
 import { useState } from "react";
-// import { useState } from "react";
 
 function Board(props) {
-  //props.data => [{card}, {card},...]
+  //datApp delete filter setFilter filterName setFilterName setDatApp
   const {filter, setFilter, datApp, filterName, setFilterName, setDatApp} = props;
 
   const handleFilter = (event) => {
@@ -44,7 +43,7 @@ function Board(props) {
 
   let backlogList = filterListName.filter((card) => card.status === "Backlog");
   let inProgressList = filterListName.filter((card)=> card.status === "In Progress" );
-  let toDoList = filterListName.filter((card)=> card.status === "To Do" && props.filter);
+  let toDoList = filterListName.filter((card)=> card.status === "To Do");
   let doneList = filterListName.filter((card)=> card.status === "Done");
 
   const [cardSelected, setCardSelected] = useState(null) 
@@ -58,11 +57,11 @@ function Board(props) {
     if(name){
       let clone = structuredClone(datApp)
       let index = clone.findIndex(elem=>elem.id === cardSelected.id)
-      // console.log(clone[index])
+
       clone[index] = cardSelected
       clone[index].status = name
-      // console.log(clone[index])
 
+      
       setDatApp(clone)
       setCardSelected(null)
     }
@@ -75,15 +74,15 @@ function Board(props) {
         <div className="botonera">
           <div className="filtros">
             <div style={{backgroundColor:'rgb(114, 26, 26)'}}>
-              <input name={'high'} onClick={()=>handleFilter(event)} type="checkbox" />
+              <input name={'high'} onClick={handleFilter} type="checkbox" />
               <img className="img-check" src={ojo} alt="" />
             </div> 
             <div style={{backgroundColor:'rgb(177, 100, 0)'}}>
-              <input name={'medium'} onClick={()=>handleFilter(event)} type="checkbox" />
+              <input name={'medium'} onClick={handleFilter} type="checkbox" />
               <img className="img-check" src={ojo} alt="" />
             </div> 
             <div style={{backgroundColor:'rgb(0, 100, 0)'}}>
-              <input name={'low'} onClick={()=>handleFilter(event)} type="checkbox" />
+              <input name={'low'} onClick={handleFilter} type="checkbox" />
               <img className="img-check" src={ojo} alt="" />
             </div>
           </div>

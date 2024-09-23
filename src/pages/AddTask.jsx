@@ -90,30 +90,3 @@ function AddTask({datApp, setData}) {
 }
 
 export default AddTask
-
-
-
-{/* <label for="date-input">Select a date:</label>
- <input type="date" id="date-input" name="date-input">
-
-<button onclick="checkDate()">Check Date</button>
-
-<script>
-  function checkDate() {
-    const dateInput = document.getElementById('date-input').value;
-    if (!dateInput) {
-      alert('Please select a date');
-    } else {
-      alert('Selected date is: ' + dateInput);
-    }
-  }
-</script> */}
-
-
-// const year = today.getFullYear();
-// const month = String(today.getMonth() + 1).padStart(2, '0'); // Mes empieza desde 0, por eso se suma 1
-// const day = String(today.getDate()).padStart(2, '0');
-
-// const todayFormatted = `${year}-${month}-${day}`;
-
-// const today = new Date().toLocaleDateString('en-CA');

@@ -10,10 +10,10 @@ function EditTask(props) {
     const { task } = useParams()
 
     let clone = structuredClone(datApp)
-    // console.log(clone)
+
     const [card, setCard] = useState(clone.find(elem => elem.id === task))
     
-    const [checked, setChecked] = useState(false) ;
+    const [checked, setChecked] = useState(false);
 
     const handleEditMode = (event)=>{
         setChecked(event.target.checked)
@@ -39,8 +39,8 @@ function EditTask(props) {
             <div className="id-container">
                 <p>id: {card.id}</p>
                 <Link to={'/'}>
-                <button>⤺</button>
-            </Link>
+                    <button>⤺</button>
+                </Link>
             </div>
             <div className="edit-columns-container">
                 <div className="edit-task-column">
@@ -48,14 +48,14 @@ function EditTask(props) {
                         <label htmlFor="title">title</label>
                         {!checked
                         ? <p>{card.title}</p>
-                        : <input onChange={()=>handleChange(event)} value={card.title} type="text" name="title"/>
+                        : <input onChange={handleChange} value={card.title} type="text" name="title"/>
                         }
                     </div>
                     <div className="pareja">
                         <label htmlFor="status">status</label>
                         {!checked
                         ? <p>{card.status}</p>
-                        : <select onChange={()=>handleChange(event)} value={card.status} type="text" name="status">
+                        : <select onChange={handleChange} value={card.status} type="text" name="status">
                             <option value="Backlog">Backlog</option>
                             <option value="To Do">To Do</option>
                             <option value="In Progress">In Progress</option>
@@ -73,14 +73,14 @@ function EditTask(props) {
                         <label htmlFor="assignee">assignee</label>
                         {!checked
                         ? <p>{card.assignee}</p>
-                        : <input onChange={()=>handleChange(event)} value={card.assignee} type="text" name="assignee"/>
+                        : <input onChange={handleChange} value={card.assignee} type="text" name="assignee"/>
                         }
                     </div>
                     <div className="pareja">
                         <label htmlFor="priority">priority</label>
                         {!checked
                         ? <p>{card.priority}</p>
-                        : <select onChange={()=>handleChange(event)} value={card.priority} type="text" name="priority">
+                        : <select onChange={handleChange} value={card.priority} type="text" name="priority">
                             <option value="Low">Low</option>
                             <option value="Medium">Medium</option>
                             <option value="High">High</option>
@@ -91,7 +91,7 @@ function EditTask(props) {
                         <label htmlFor="dueDate">due date</label>
                         {!checked
                         ? <p>{card.dueDate}</p>
-                        : <input onChange={()=>handleChange(event)} value={card.dueDate} type="date" name="dueDate"/>
+                        : <input onChange={handleChange} value={card.dueDate} type="date" name="dueDate"/>
                         }
                     </div>
                 </div>
@@ -100,18 +100,17 @@ function EditTask(props) {
                 <label htmlFor="description">description</label>
                 {!checked
                 ? <p id="description-p">{card.description}</p>
-                : <textarea onChange={()=>handleChange(event)} value={card.description} type="text" name="description"/>
+                : <textarea onChange={handleChange} value={card.description} type="text" name="description"/>
                 }
             </div>
             
             <div className="edit-botonera">
                 <div className="check-container">
-                    <input type="checkbox" name='editMode' onChange={()=>handleEditMode(event)} className="check-edit-mode"/>
+                    <input type="checkbox" name='editMode' onChange={handleEditMode} className="check-edit-mode"/>
                     <button className="boton-check-edit">Edit Mode</button>
                 </div>
                 <button onClick={()=>handleAddChanges(clone)} className="boton-apply-changes">Apply Changes</button>
             </div>
-            {/* Aplly Changes */}
         </div>
     )
 }

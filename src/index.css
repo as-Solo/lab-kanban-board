@@ -222,6 +222,8 @@ button {
 }
 #about p{
   font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.5rem;
   text-align: justify;
 }
 
@@ -229,6 +231,7 @@ button {
   display: flex;
   justify-content: space-around;
   min-height: 60%;
+  margin-bottom: 20px;
 }
 
 .student-card{
