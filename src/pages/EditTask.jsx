@@ -6,7 +6,7 @@ import "../styles/EditTask.css"
 
 function EditTask(props) {
 
-    const {datApp, setDatApp } = props
+    const {datApp, setDatApp, setToast } = props
     const { task } = useParams()
 
     let clone = structuredClone(datApp)
@@ -22,7 +22,7 @@ function EditTask(props) {
     const handleChange = (event)=>{
         let cardClone = structuredClone(card);
         cardClone[event.target.name] = event.target.value
-        console.log(clone)
+
         setCard(cardClone)
     }
 
@@ -31,7 +31,14 @@ function EditTask(props) {
         const index = dataClone.findIndex((elem) => elem.id === task)
         dataClone[index] = card
         setDatApp(dataClone)
-        console.log(dataClone)
+
+        setToast("Task updated successfully");
+
+        let timer = setTimeout(()=>{
+          setToast("");
+          clearTimeout(timer);
+        }, 2500)
+
     }
 
     return (

@@ -1,7 +1,7 @@
 import '../styles/AddTask.css'
 import { useState } from "react";
 
-function AddTask({datApp, setData}) {
+function AddTask({datApp, setData, setToast}) {
 
     const [newTask, setNewTask] = useState({
         id: +datApp.at(-1).id + 1,
@@ -35,6 +35,13 @@ function AddTask({datApp, setData}) {
             createdDate: new Date().toLocaleDateString('en-CA'),
             dueDate: "", 
         })
+
+        setToast(" Task created successfully");
+
+        let timer = setTimeout(()=>{
+          setToast("");
+          clearTimeout(timer);
+        }, 2500)
     }
 
     return (

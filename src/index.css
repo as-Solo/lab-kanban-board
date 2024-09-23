@@ -276,6 +276,28 @@ button {
   max-width: 110px;
 }
 
+.toast {
+  position: absolute;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #00f7ff62;
+  color: #00f7ff;
+  /* color: white; */
+  font-weight: bold;
+  border: 1px lightgray solid;
+  border-top: 0px;
+
+  width: 400px;
+  height: 40px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .columnaContenido::-webkit-scrollbar {
   width: 12px; 
