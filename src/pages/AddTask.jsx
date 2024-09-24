@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import '../styles/AddTask.css'
 import { useState } from "react";
 
@@ -13,6 +14,8 @@ function AddTask({datApp, setData, setToast}) {
         createdDate: new Date().toLocaleDateString('en-CA'),
         dueDate: "", 
     });
+
+    const navigate = useNavigate("/");
 
     const handleChange = (event) => {
         const clone = structuredClone(newTask);
@@ -38,10 +41,7 @@ function AddTask({datApp, setData, setToast}) {
 
         setToast(" Task created successfully");
 
-        let timer = setTimeout(()=>{
-          setToast("");
-          clearTimeout(timer);
-        }, 2500)
+        navigate("/");
     }
 
     return (

@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import "../styles/EditTask.css"
 
 
@@ -14,6 +14,8 @@ function EditTask(props) {
     const [card, setCard] = useState(clone.find(elem => elem.id === task))
     
     const [checked, setChecked] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleEditMode = (event)=>{
         setChecked(event.target.checked)
@@ -33,12 +35,7 @@ function EditTask(props) {
         setDatApp(dataClone)
 
         setToast("Task updated successfully");
-
-        let timer = setTimeout(()=>{
-          setToast("");
-          clearTimeout(timer);
-        }, 2500)
-
+        navigate("/")
     }
 
     return (

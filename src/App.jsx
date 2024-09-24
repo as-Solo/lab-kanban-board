@@ -32,10 +32,11 @@ function App() {
 
     setToast("Task deleted");
 
-    let timer = setTimeout(()=>{
-      setToast("");
-      clearTimeout(timer);
-    }, 2500)
+    // let timer = setTimeout(()=>{
+
+    //   setToast("");
+    //   clearTimeout(timer);
+    // }, 2500)
   }
 
   const handleSideBar = () => {
@@ -57,7 +58,7 @@ function App() {
           <Route path={"*"} element= {<NotFound/>}/>
         </Routes>        
       </div>
-      {toast && <Toast message={toast}/>}
+      {toast ? <Toast message={toast} setToast={setToast}/> : null}
       <Footer/>
     </div>
   )
