@@ -8,7 +8,7 @@ function About (){
         <div id="about">
             <h1>About us</h1>
             <p>
-            A Kanban Board app allows users to create, organize, and manage tasks using a visual interface with columns like "Backlog", "To Do", "In Progress" and "Done." Users can easily add, edit and delete tasks, drag them between columns and filter task by priority or assignee.</p>
+            The app allows users to create, organize, and manage tasks using a visual interface with columns like "Backlog", "To Do", "In Progress" and "Done." Users can easily add, edit and delete tasks, drag them between columns and filter task by priority or assignee.</p>
             <div className="student-row">
                 <div className="student-card">
                     <h2>Alejandro del Solo</h2>
